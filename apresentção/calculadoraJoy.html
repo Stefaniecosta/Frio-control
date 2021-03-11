@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Projeto</title>
+</head>
+<body>
+    <h1>Calculadora de prejuizo</h1>
+    
+    Digite a quantidade de vacinas perdidas:
+    <input type="text" id="vac_perd" placeholder="Vacinas Perdidas">
+    <br>
+    <br>
+    <button onclick="calcular()" style="height: 50px; background-color: black; color: blanchedalmond;" >Calcular Prejuizo</button>
+    <br>
+    <br>
+    <div id="div_mens"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var pre = 102.80;
+        var tpre  = vac_perd.value * pre;
+        div_mens.innerHTML = `<h2> O prejuizo em vacinas foi de <b> R$ ${tpre} </b> </h2>`;
+    }
+</script>
