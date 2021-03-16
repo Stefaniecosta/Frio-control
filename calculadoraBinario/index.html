@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="reset.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap"rel="stylesheet"/>
+
+      <link rel="stylesheet" type="text/css" href="style.css" />
+
+      <title>Calculadora de Numerais</title>
+    </head>
+      <body>
+        <header>
+            <div class="caixa">
+                <h1><img src="logo.png" alt="logo"></h1>
+            </div>
+        </header>
+        <main>
+          <div class="container-calculator">
+            <strong>Calculadora de numerais</strong>
+           <div class="calculator">
+              <div class="container-input">
+                <label for="decimal" class="label">Decimal</label>
+                <input class="input" id="decimal" placeholder="0" />
+              </div>
+              <div class="container-input">
+                <label for="binario" class="label">Binário</label>
+                <input class="input" id="binario" placeholder="0" />
+              </div>
+              <div class="container-input">
+                <label for="octal" class="label">Octal</label>
+                <input class="input" id="octal" placeholder="0" />
+              </div>
+              <div class="container-input">
+                <label for="hexadecimal" class="label">Hexadecimal</label>
+                <input class="input" id="hexadecimal" placeholder="0" />
+              </div>
+
+              <button id="button" onclick="zerar()" class="button">Zerar</button>
+            </div>
+          </div>
+        </main>
+          <footer>
+              <p> André Prieto - RA: 01211005 <br>
+                  Brenda Roberta - RA: 01211012 <br>
+                  Matheus Lemos - RA: 01211096 <br>
+                  Maurício Ishikawa - RA: 01211102 <br>
+                  Stefanie Dias - RA: 01211121 <br>
+                  Taís Fermino - RA: 01211122 </p>
+        
+          </footer>
+
+      
+
+      </body>
+</html>
+<script>
+const decimal = document.getElementById('decimal');
+const binario = document.getElementById('binario');
+const octal = document.getElementById('octal');
+const hexadecimal = document.getElementById('hexadecimal');
+const button = document.getElementById('button');
+
+decimal.addEventListener('keyup', (event) => {
+  binario.value = Number(decimal.value).toString(2);
+  octal.value = Number(decimal.value).toString(8);
+  hexadecimal.value = Number(decimal.value).toString(16).toUpperCase();
+});
+
+binario.addEventListener('keyup', (event) => {
+  decimal.value = parseInt(binario.value, 2);
+  octal.value = parseInt(binario.value, 2).toString(8);
+  hexadecimal.value = parseInt(binario.value, 2).toString(16).toUpperCase();
+});
+
+octal.addEventListener('keyup', (event) => {
+  decimal.value = parseInt(octal.value, 8);
+  binario.value = parseInt(octal.value, 8).toString(2);
+  hexadecimal.value = parseInt(octal.value, 8).toString(16);
+});
+
+hexadecimal.addEventListener('keyup', (event) => {
+  decimal.value = parseInt(hexadecimal.value, 16);
+  binario.value = parseInt(hexadecimal.value, 16).toString(2);
+  octal.value = parseInt(hexadecimal.value, 16).toString(8);
+});
+
+button.addEventListener('click', (event) => {
+  decimal.value = 0;
+  binario.value = 0;
+  octal.value = 0;
+  hexadecimal.value = 0;
+});
+</script>
